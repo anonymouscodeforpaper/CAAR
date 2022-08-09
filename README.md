@@ -19,4 +19,4 @@ Datasets:
 
 
 
-To rune the code, python3 main.py --name = 'Frappe' (This is to run experiment on frappe dataset, to run experiment on Yelp, simplely change to python3 main.py --name = 'Yelp')
+To run the code, python3 main.py --name = 'Frappe' (This is to run experiment on frappe dataset, to run experiment on Yelp, simplely change to python3 main.py --name = 'Yelp')
