@@ -4,7 +4,7 @@
 Datasets: 
 
 (1) Frappe, frappe.csv and meta.csv, user-item interactions and attributes of items respectively
-(2) Yelp, yelp_academic_dataset_review.json and yelp_academic_dataset_business.json, user-item interactions and attributes of items respectively
+(2) Yelp, yelp_academic_dataset_review.json and yelp_academic_dataset_business.json, user-item interactions and attributes of items respectively. Due to the limit of document size, we can not upload the whole datset where but ths dataset is available at https://www.yelp.com/dataset
 
 -- In main.py, we start specify the hyperparameters and start the experiment
 -- In pre_traitement.py, we process the data to extract contextual information and attributes of items
