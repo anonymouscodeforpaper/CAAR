@@ -17,7 +17,7 @@ from split_data import read_knowledge,read_context
 
 
 
-def train_pre(args, verbos=False):
+def train_pre(args, verbos=False): ## initialize and train the model
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     meta_app_knowledge, n_entities, n_rel = read_knowledge(args)
     df_train, df_test, df_validation, n_users, n_items, n_contexts, n_cf = read_context(args) ### Here, we get the training, test, and the validation set 
@@ -58,7 +58,7 @@ def train_pre(args, verbos=False):
             reg_item = (model_val.item_factors(item)*model_val.item_factors(item)).sum()
             
             
-            if args.context_or == True:
+            if args.context_or == True: ## This is to compute the regulazation of parameters 
                 reg_relation_c = (model_val.relation_c.weight * model_val.relation_c.weight).sum()
                 reg_relation_k = (model_val.relation_k.weight * model_val.relation_k.weight).sum()
                 reg_context = (model_val.context_factors(contexts_index) * model_val.context_factors(contexts_index)).sum()
