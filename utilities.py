@@ -9,7 +9,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
   
   
-def RMSE(data, model,meta_app_knowledge):
+def RMSE(data, model,meta_app_knowledge): ## This function aims to compute RMSE and MAE
     model.eval()
     contexts_index = data.iloc[:, 3:].values
     contexts_index = torch.tensor(contexts_index).to(DEVICE)
@@ -31,7 +31,7 @@ def RMSE(data, model,meta_app_knowledge):
     return  torch.sqrt(rmse), mae
 
 
-def acc_auc(data,model,meta_app_knowledge):
+def acc_auc(data,model,meta_app_knowledge): ## This function can be used to compute accuracy, f1, recall and AUC if CAAR is used in ranking prediction
     contexts_index = data.iloc[:, 3:].values
     contexts_index = torch.tensor(contexts_index).to(DEVICE)
     item = data['item'].values
