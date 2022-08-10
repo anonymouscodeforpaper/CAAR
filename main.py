@@ -29,7 +29,7 @@ parser.add_argument('--context_or', type=str, default=True, help = 'Contextualiz
 
 args = parser.parse_args()
 
-read_data(args)
+read_data(args) ### This is to generate the processed data set for learning CAAR
 
 
 
