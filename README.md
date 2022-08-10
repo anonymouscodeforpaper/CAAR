@@ -1,6 +1,8 @@
 # CAAR
 
 
+This is implementation of our paper titled "CAAR: Context-aware argumentative explanations in recommender systems" submitted to AAAI 2023
+
 Datasets: 
 
 (1) Frappe, frappe.csv and meta.csv, user-item interactions and attributes of items respectively
