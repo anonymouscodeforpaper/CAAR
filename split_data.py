@@ -31,7 +31,7 @@ def read_context(args):  ### Read the user-item interactions and split them into
         df_train = df.sample(frac=0.80,random_state=0,axis=0) ## 80% of the dataset is randomly splitted as training set
         df_rest = df[~df.index.isin(df_train.index)] 
         df_test = df_rest.sample(frac=0.50,random_state=0,axis=0) ## 10% of the dataset is randomly splitted as test set
-        df_validation = df_rest[~df_rest.index.isin(df_test.index)]## 80% of the dataset is randomly splitted as validation set
+        df_validation = df_rest[~df_rest.index.isin(df_test.index)]## 10% of the dataset is randomly splitted as validation set
         
         
         
@@ -55,7 +55,7 @@ def read_context(args):  ### Read the user-item interactions and split them into
         df_train = df.sample(frac=0.80,random_state=0,axis=0) ## 80% of the dataset is randomly splitted as training set
         df_rest = df[~df.index.isin(df_train.index)] 
         df_test = df_rest.sample(frac=0.50,random_state=0,axis=0) ## 10% of the dataset is randomly splitted as test set
-        df_validation = df_rest[~df_rest.index.isin(df_test.index)]## 80% of the dataset is randomly splitted as validation set
+        df_validation = df_rest[~df_rest.index.isin(df_test.index)]## 10% of the dataset is randomly splitted as validation set
         
         
         
