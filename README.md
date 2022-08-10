@@ -1,7 +1,7 @@
 # CAAR
 
 
-This is implementation of our paper titled "CAAR: Context-aware argumentative explanations in recommender systems" submitted to AAAI 2023
+This is the implementation of our paper titled "CAAR: Context-aware argumentative explanations in recommender systems" submitted to AAAI 2023
 
 Datasets: 
 
