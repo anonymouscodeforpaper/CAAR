@@ -19,7 +19,7 @@ def read_knowledge(args): ### Read attributes of items
         
     return meta_app_knowledge, n_entities, n_rel
 
-def read_context(args):  ### Read the interactions and split them into training, test and validation set
+def read_context(args):  ### Read the user-item interactions and split them into training, test and validation set
     if args.name == 'Frappe':
         df = pd.read_csv('data/final_app.csv')
         n_cf = df.shape[1] - 3 ## Here, we compute the number of contextual factors
