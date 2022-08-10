@@ -13,7 +13,7 @@ from sklearn.preprocessing import LabelEncoder
 # In[3]:
 
 
-def read_data(args):
+def read_data(args): ## This function does some pretraitements to generate the data for learning CAAR
     if args.name == 'Yelp':
         df_business = read_json('yelp_academic_dataset_business.json') ## Datasets that contains the attributes of items
         df_review = read_json('yelp_academic_dataset_review.json') ## Datasest that contains user-item interactions
@@ -91,7 +91,7 @@ def read_data(args):
         
         
         
-        ### From line 18 to line 24, we give new index to each user and item after the 10-core setting
+        ### From line 95 to line 102, we give new index to each user and item after the 10-core setting
         le = LabelEncoder()
         b = le.fit_transform(meta_app['item'])
         i = meta_app['item'].values
@@ -125,7 +125,7 @@ def read_data(args):
 
 
 
-def trans_frame(df,k):
+def trans_frame(df,k): ## This function aims to discretize the categorical values
     x = 0
     for col in df.columns[k:]:
         num = len(df[col].value_counts())
