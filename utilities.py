@@ -23,7 +23,7 @@ def RMSE(data, model,meta_app_knowledge): ## This function aims to compute RMSE 
 
     # Predict and calculate loss
     prediction = model(user, item, contexts_index, entities_index)
-    
+    prediction = (prediction + 1) * 2 + 1
     rating = rating.cpu().detach()
     prediction = prediction.cpu().detach()
     rmse = loss_func(prediction, rating)
