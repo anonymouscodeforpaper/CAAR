@@ -26,7 +26,7 @@ def read_context(args):  ### Read the user-item interactions and split them into
         n_users = len(df['user'].value_counts()) ## Here, we compute the number of users
         n_items = len(df['item'].value_counts()) ## Here, we compute the number of items
         n_contexts = max(df['city']) + 1 ## Here, we compute the number of contextual conditions
-        
+        df['cnt'] = (df['cnt'] - 1) / 2 - 1
         
         df_train = df.sample(frac=0.80,random_state=0,axis=0) ## 80% of the dataset is randomly splitted as training set
         df_rest = df[~df.index.isin(df_train.index)] 
@@ -50,6 +50,7 @@ def read_context(args):  ### Read the user-item interactions and split them into
         n_users = len(df['user'].value_counts()) ## Here, we compute the number of users
         n_items = len(df['item'].value_counts()) ## Here, we compute the number of items
         n_contexts = max(df['Alone_Companion']) + 1 ## Here, we compute the number of contextual conditions
+        df['cnt'] = (df['cnt'] - 1) / 2 - 1
         
         
         df_train = df.sample(frac=0.80,random_state=0,axis=0) ## 80% of the dataset is randomly splitted as training set
