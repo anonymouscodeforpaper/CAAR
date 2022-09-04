@@ -50,11 +50,11 @@ def train_pre(args, verbos=False): ## initialize and train the model
             item = torch.LongTensor(item).to(DEVICE)
             rating = torch.FloatTensor(
                 df_train['cnt'].loc[indexs].values).to(DEVICE)
-            rating = (rating + 1) * 2 + 1
+            
             user = df_train['user'].loc[indexs].values
             user = torch.LongTensor(user).to(DEVICE)
             prediction = model_val(user, item, contexts_index, entities_index)
-            prediction = (prediction + 1) * 2 + 1
+            
             err = loss_func(prediction, rating)
             reg_user = (model_val.user_factors(user)*model_val.user_factors(user)).sum()
             reg_item = (model_val.item_factors(item)*model_val.item_factors(item)).sum()
