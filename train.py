@@ -50,6 +50,7 @@ def train_pre(args, verbos=False): ## initialize and train the model
             item = torch.LongTensor(item).to(DEVICE)
             rating = torch.FloatTensor(
                 df_train['cnt'].loc[indexs].values).to(DEVICE)
+            rating = (rating + 1) * 2 + 1
             user = df_train['user'].loc[indexs].values
             user = torch.LongTensor(user).to(DEVICE)
             prediction = model_val(user, item, contexts_index, entities_index)
