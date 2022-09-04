@@ -18,6 +18,7 @@ def RMSE(data, model,meta_app_knowledge): ## This function aims to compute RMSE 
     entities_index = torch.tensor(entities_index).to(DEVICE)
 
     rating = torch.FloatTensor(data['cnt'].values).to(DEVICE)
+    rating = (rating + 1) * 2 + 1
     user = torch.LongTensor(data['user'].values).to(DEVICE)
     item = torch.LongTensor(data['item'].values).to(DEVICE)
 
