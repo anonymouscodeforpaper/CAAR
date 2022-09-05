@@ -1,10 +1,15 @@
 # CAAR
-
-![Illustration of the framework of CAAR](https://github.com/anonymouscodeforpaper/CAAR/blob/main/framework.png)
-
 This is the implementation of our paper titled "CAAR: Context-aware argumentative explanations in recommender systems" submitted to AAAI 2023
 
-Datasets: 
+## Main steps
+There are mainly three steps:
+- Computing the representation of target users under the target contextual situation;
+- Computing users' ratings towards attributes of items under the given contextual situation;
+- Aggregating the ratings in the previous step to get users' ratings towards items.
+![Illustration of the framework of CAAR](https://github.com/anonymouscodeforpaper/CAAR/blob/main/framework.png)
+
+
+## Datasets: 
 
 (1) Frappe, frappe.csv and meta.csv, user-item interactions and attributes of items respectively
 
