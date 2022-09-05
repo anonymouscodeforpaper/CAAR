@@ -1,6 +1,6 @@
 # CAAR
 
-!(https://github.com/anonymouscodeforpaper/CAAR/blob/main/framework.png)
+![Illustration of the framework of CAAR](https://github.com/anonymouscodeforpaper/CAAR/blob/main/framework.png)
 
 This is the implementation of our paper titled "CAAR: Context-aware argumentative explanations in recommender systems" submitted to AAAI 2023
 
