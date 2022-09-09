@@ -54,6 +54,7 @@ def train_pre(args, verbos=False): ## initialize and train the model
             user = df_train['user'].loc[indexs].values
             user = torch.LongTensor(user).to(DEVICE)
             prediction = model_val(user, item, contexts_index, entities_index)
+            optimizer.zero_grad()
             
             err = loss_func(prediction, rating)
             reg_user = (model_val.user_factors(user)*model_val.user_factors(user)).sum()
@@ -71,7 +72,7 @@ def train_pre(args, verbos=False): ## initialize and train the model
                 reg_entity = (model_val.entity_factors(entities_index) * model_val.entity_factors(entities_index)).sum()
                 err = err + args.l2_weight * (reg_user + reg_item  + reg_entity + reg_relation_k)
                 
-            optimizer.zero_grad()
+            
 
             err.backward()
             optimizer.step()
