@@ -27,9 +27,9 @@ def train_pre(args, verbos=False): ## initialize and train the model
     
     
     loss_func = torch.nn.MSELoss()
-    optimizer = torch.optim.Adam(params=model_val.parameters(), lr=args.lr)
+    optimizer = torch.optim.Adam(params=model.parameters(), lr=lr,weight_decay=args.l2_weight)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-    optimizer, mode='min', factor=0.5, patience=5, threshold=0.05, threshold_mode='abs')
+        optimizer, mode='min', factor=0.5, patience=10, threshold_mode='abs',threshold = 0.005)
     
     
     
@@ -57,20 +57,7 @@ def train_pre(args, verbos=False): ## initialize and train the model
             optimizer.zero_grad()
             
             err = loss_func(prediction, rating)
-            reg_user = (model_val.user_factors(user)*model_val.user_factors(user)).sum()
-            reg_item = (model_val.item_factors(item)*model_val.item_factors(item)).sum()
             
-            
-            if args.context_or == True: ## This is to compute the regulazation of parameters 
-                reg_relation_c = (model_val.relation_c.weight * model_val.relation_c.weight).sum()
-                reg_relation_k = (model_val.relation_k.weight * model_val.relation_k.weight).sum()
-                reg_context = (model_val.context_factors(contexts_index) * model_val.context_factors(contexts_index)).sum()
-                reg_entity = (model_val.entity_factors(entities_index) * model_val.entity_factors(entities_index)).sum()
-                err = err + args.l2_weight * (reg_user + reg_item + reg_context + reg_entity + reg_relation_c + reg_relation_k)
-            else:
-                reg_relation_k = (model_val.relation_k.weight * model_val.relation_k.weight).sum()
-                reg_entity = (model_val.entity_factors(entities_index) * model_val.entity_factors(entities_index)).sum()
-                err = err + args.l2_weight * (reg_user + reg_item  + reg_entity + reg_relation_k)
                 
             
 
